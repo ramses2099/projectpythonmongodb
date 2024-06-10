@@ -14,16 +14,16 @@ def main():
         # COLLECTION
         posts = db["posts"]
 
-        # post = {
-        #     "author": "Mike",
-        #     "text": "My first blog post!!!",
-        #     "tags": ["mongodb", "python", "pymongo"],
-        #     "date": datetime.now(),
-        # }
+        post = {
+            "author": "Delete",
+            "text": "My first blog post!!!",
+            "tags": ["mongodb", "python", "pymongo"],
+            "date": datetime.now(),
+        }
 
-        # post_id = posts.insert_one(post).inserted_id
+        post_id = posts.insert_one(post).inserted_id
 
-        # print(f"post id: {post_id}")
+        print(f"post id: {post_id}")
 
         # FIND ALL DOCUMENTS
         # pprint(posts.find_one())
@@ -43,17 +43,29 @@ def main():
         #         "date": datetime.now(),
         #     }
         # ]
-        
+
         # rs = posts.insert_many(new_posts)
         # print(f"_Id: {rs.inserted_ids}")
-        
+
         # SHOW ALL DOCUMENTS
         # for p in posts.find():
         #     pprint(p)
-        
-        # COUNT DOCUMENTS
-        print(f"count documents {posts.count_documents({})}")
 
+        # COUNT DOCUMENTS
+        # print(f"count documents {posts.count_documents({})}")
+
+        # UPDATE DOCUMENTS
+        # posts.update_one(
+        #     {"_id": "666785c6ce06bda319c8ef52"}, {"$set": {"tags": ["mongodb", "test"]}}
+        # )
+
+        # pprint(posts.find({"_id": "666785c6ce06bda319c8ef52"}))
+        
+        # DELETE DOCUMENTS
+        # post_delete = posts.delete_one({"_id": "66678b51149817e7e05572d7"})
+        # post_delete = posts.delete_many({"author": "Delete"})
+
+        # print(f"delete document: {post_delete}")
     except Exception as e:
         raise e
 
